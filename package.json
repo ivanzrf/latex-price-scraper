@@ -1,0 +1,24 @@
+{
+  "name": "latex-price-scraper",
+  "version": "1.0.0",
+  "description": "Web scraping tools for comparing latex sheeting prices across suppliers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanzrf/latex-price-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ivanzrf/latex-price-scraper/issues"
+  },
+  "homepage": "https://github.com/ivanzrf/latex-price-scraper#readme",
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}
