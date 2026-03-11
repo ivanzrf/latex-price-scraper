@@ -6,24 +6,24 @@ const { chromium } = require('playwright');
 const BASE_URL = 'https://www.blackstyle.de';
 
 const CATEGORIES = [
-  ['latex_meterware', 'Latex by the meter'],
-  ['rubber_by_the_meter', 'Rubber by the meter'],
-  ['neu', 'New products'],
-  ['angebote', 'Offers/Sales'],
-  ['shirts', 'Shirts'],
-  ['hosen', 'Pants'],
-  ['roecke', 'Skirts'],
-  ['kleider', 'Dresses'],
-  ['catsuits', 'Catsuits'],
-  ['jacken', 'Jackets'],
-  ['accessoires', 'Accessories'],
+  ['latex_meterware', 'Latex by the metre'],
+  ['neu', 'New items'],
+  ['angebote', 'Special offers'],
+  ['einzelstuecke', 'Unique pieces'],
+  ['heavy_rubber', 'Heavy Rubber'],
+  ['latex_damen', 'Latex for Ladies'],
+  ['latex_herren', 'Latex for Gentlemen'],
   ['masken', 'Masks'],
-  ['dessous', 'Lingerie'],
-  ['handschuhe', 'Gloves'],
-  ['struempfe', 'Stockings'],
+  ['bondage', 'Bondage'],
+  ['accessoires', 'Accessories'],
+  ['latex_bettwaesche', 'Latex Bedding'],
+  ['latex_schlafsaecke', 'Latex sleep sacks'],
+  ['liquid_latex', 'Liquid Latex'],
+  ['latex_zubehoer', 'Latex supplies'],
+  ['auslaufartikel', 'Discontinued items'],
 ];
 
-function categoryUrl(catId, lang = 'en') {
+function categoryUrl(catId, lang = 'e') {
   return `${BASE_URL}/lshop,showrub,,${lang},,${catId},,,,.htm`;
 }
 
@@ -37,7 +37,7 @@ async function scrapeCategory(page, catId, catName) {
     await page.waitForTimeout(1500);
 
     const content = await page.content();
-    if (content.includes('keine Angebote') || content.includes('no offers')) {
+    if (content.includes('keine Angebote') || content.includes('no offers') || content.includes('No items available')) {
       console.log(`    Empty category`);
       return [];
     }
